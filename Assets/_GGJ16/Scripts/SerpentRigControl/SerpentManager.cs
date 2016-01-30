@@ -11,6 +11,7 @@ namespace Serpent{
 		int indexer;
 
 		public string jointPrefix;
+		public float jointRotateSpeed;
 		// Use this for initialization
 		void Start () {
 			indexer = 0;
@@ -38,6 +39,7 @@ namespace Serpent{
 					JointControl joint = trans.gameObject.AddComponent<JointControl> () as JointControl;
 					joint.puppetJoint = puppet;
 					joint.SetOffset (puppet);
+					joint.jointRotateSpeed = jointRotateSpeed;
 					joint.index = indexer;
 					if (indexer == 0) {
 						trans.gameObject.AddComponent<HeadControl> ();
