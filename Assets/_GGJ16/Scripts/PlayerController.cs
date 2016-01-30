@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class PlayerController : MonoBehaviour {
     public float speed = 1;
     public PlayerNumber number;
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     public void Move(Vector3 dir){
         if (isFlying)
         {
-            //Serpent.Move(dir * speed * Time.deltaTime);
+            Serpent.HeadControl.main.Move(dir);
         }
         else
         {
