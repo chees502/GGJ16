@@ -20,7 +20,7 @@ public class _Root{
         switch (old)
         {
             case (GameState.Splash):
-
+                SplashScreenController.main.Disable();
                 break;
             case (GameState.Lobby):
 
