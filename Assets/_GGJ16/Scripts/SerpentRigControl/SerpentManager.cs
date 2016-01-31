@@ -7,6 +7,7 @@ namespace Serpent{
 
 		IList<Transform> joints;
 		Transform head;
+		public bool is_x_forward;
 		public bool findJoints;
 		int indexer;
 
@@ -16,7 +17,7 @@ namespace Serpent{
 		void Start () {
 			indexer = 0;
 			joints = new List<Transform> ();
-
+			is_x_forward = true;
 		}
 		
 		// Update is called once per frame
@@ -43,6 +44,7 @@ namespace Serpent{
 					joint.index = indexer;
 					if (indexer == 0) {
 						trans.gameObject.AddComponent<HeadControl> ();
+						trans.Rotate (0, 180, 0);
 					}
 					if (indexer > 0) {
 						joint.prevJoint = joints [indexer - 1];

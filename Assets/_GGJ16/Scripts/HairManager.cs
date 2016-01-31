@@ -38,6 +38,7 @@ public class HairManager : MonoBehaviour {
 					joint.spacing = Vector3.Distance (puppet.position, joint.prevJoint.position);
 				}
 				indexer++;
+				puppet.parent = null;
 				joints.Add (puppet);
 			}
 		}
