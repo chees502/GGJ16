@@ -5,6 +5,8 @@ public class HairJoint : MonoBehaviour {
 
 	public int index;
 	public Transform prevJoint;
+	public Transform puppetJoint;
+	public float jointRotateSpeed;
 
 	public float spacing;
 	public float range;
@@ -14,6 +16,9 @@ public class HairJoint : MonoBehaviour {
 	void Start () {
 		range = 0.5f;
 		speed = 3;
+	//	if (index == 0) {
+	//		puppetJoint.Rotate (180, 180, 0);
+	//	}
 	}
 	
 	// Update is called once per frame
@@ -22,10 +27,16 @@ public class HairJoint : MonoBehaviour {
 			index > 0) {
 			MoveMe ();
 		}
-	//	if (this.index == 0) {
-			transform.Rotate (0, Mathf.Sin (Time.time*speed)*range, 0);
+		if (this.index == 0) {
+		//	transform.Rotate (Mathf.Sin (Time.time*speed)*range,0, 0);
 
-	//	}
+		}
+	}
+
+	public void SetOffset(Transform puppet){
+		//	rotOffset = Quaternion.FromToRotation(transform.forward, transform.up);
+		puppet.transform.parent = null;
+		puppet.transform.parent = transform;
 	}
 
 	void MoveMe(){
