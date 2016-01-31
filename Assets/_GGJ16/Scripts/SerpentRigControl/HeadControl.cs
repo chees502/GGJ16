@@ -33,6 +33,11 @@ namespace Serpent{
             Quaternion target = Quaternion.Euler(0, Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg, 0);
             transform.rotation = Quaternion.RotateTowards(transform.rotation,target,turnRadius*Time.deltaTime);
         }
+        void OnTriggerEnter(Collider other)
+        {
+            Destroy(other.gameObject);
+            _Root.flyingPlayer.score++;
+        }
 	}
 }
 

@@ -13,6 +13,7 @@ public class _Root{
         {
             if (value == _gameState) return;
             SwitchState(_gameState, value);
+            _gameState = value;
         }
     }
     private static void SwitchState(GameState old, GameState now)

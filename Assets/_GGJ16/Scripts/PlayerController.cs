@@ -4,6 +4,19 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour {
     public float speed = 1;
     public PlayerNumber number;
+    public IList<PlayerController> players = new List<PlayerController>();
+    public PlayerState playerState = PlayerState.Inactive;
+    private int _score = 0;
+    public int score
+    {
+        get { return _score; }
+        set
+        {
+            //Do Pretty Shit
+            _score = value;
+            Debug.Log(gameObject.name + " now has " + _score);
+        }
+    }
     public float slideAmount = 0.1f;
     public Vector3 lateral = Vector3.right;
     public float dot = 0;
@@ -11,6 +24,10 @@ public class PlayerController : MonoBehaviour {
     {
         get { return _Root.flyingPlayer==this; }
         set { _Root.flyingPlayer = this; }
+    }
+    void Awake()
+    {
+        players.Add(this);
     }
     void Update(){
         Move(GetDir());
