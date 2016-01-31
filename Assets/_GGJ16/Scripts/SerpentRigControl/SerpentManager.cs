@@ -43,8 +43,9 @@ namespace Serpent{
 					joint.jointRotateSpeed = jointRotateSpeed;
 					joint.index = indexer;
 					if (indexer == 0) {
+						trans.gameObject.AddComponent<HeadJoint> ();
 						trans.gameObject.AddComponent<HeadControl> ();
-						trans.Rotate (0, 180, 0);
+					//	trans.Rotate (0, 180, 0);
 					}
 					if (indexer > 0) {
 						joint.prevJoint = joints [indexer - 1];
